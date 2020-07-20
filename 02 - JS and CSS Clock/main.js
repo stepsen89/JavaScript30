@@ -1,0 +1,23 @@
+const secondsHand = document.getElementById("seconds")
+const minutesHand = document.getElementById("minutes")
+const hoursHand = document.getElementById("hours")
+
+const setDate = () => {
+  const now = new Date();
+
+  const seconds = now.getSeconds();
+  const secondsDegrees = ((seconds / 60) * 360) + 90;
+  secondsHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+  const minutes = now.getMinutes();
+  const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
+  minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+  const hours = now.getHours();
+  const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
+  hoursHand.style.transform = `rotate(${hourDegrees}deg)`;
+
+  console.log(now)
+}
+
+setInterval(setDate, 1000);
